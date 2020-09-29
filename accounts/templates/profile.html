@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome to your profile page {{ user.username }}.</h2>
+            <p>Order something more unique below.</p>
+            <a href="{% url 'NeedsForm' %}"><button type="button" class="btn btn-primary">Custom Order Form </button></a>
+            <h2>Post a testimonial if you are happy with our products.</h2>
+            <a href="{% url 'create_or_edit_post'%}"><button type="button" class="btn btn-primary">Post</button></a>
+                <a href="{% url 'post_detail' %}" class="btn btn-default">View Post</a>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

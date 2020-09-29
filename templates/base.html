@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Noir Digital Graphic Design</title>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--Carousel JS-->
+    <script src="{% static 'js/carousel.js' %}"></script>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!--Navbar CSS-->
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <!--Favicon-->
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <!--Image Grid CSS-->
+    <link rel="stylesheet" href="{% static 'css/image_grid.css' %}" /> {% block head_js %} {% endblock head_js %}
+</head>
+
+<body>
+    <!-- Fixed masthead -->
+    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Noir Digital</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/products"> Products</a></li>
+                    <li><a href="/about"> About</a></li>
+                    <li><a href="/news"> News</a></li>
+                    <li><a href="/work"> Work</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}"> Profile</a></li>
+                    <li><a href="{% url 'logout' %}"> Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'register' %}"> Register</a></li>
+                    <li><a href="{% url 'login' %}"> Log In</a></li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'view_cart' %}">
+                             Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% if messages %}
+    <div class="alert alert-success">
+        <div class="messages">
+            {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <br>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    <br>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                        <h5>Follow Us!</h5>
+                        <!--Facebook-->
+                        <span><a href="https://www.facebook.com"><i class="fa fa-facebook-square 5x" aria-hidden="true"></i></a></span>
+                        <!--Twitter-->
+                        <span><a href="https://www.twitter.com"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
+                        <!--Instagram-->
+                        <span><a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a></span>
+                </div>
+                <!---->
+                <div class="col-md-6">
+                    <h4>Made by Derek Olson</h4>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>
