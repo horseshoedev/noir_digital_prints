@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8d58b42b793b4cf49a1ca55743163ad7.vfs.cloud9.us-east-1.amazonaws.com','milestone-four-noir-digital.herokuapp.com','www.noirdigitalprints.com']
 
