@@ -1,8 +1,8 @@
-# [Noir Digital]()
+# Noir Digital
 
 ### This site is an ecommerce website selling art prints. A user can also leave a testimonial and request something custom.
 
-[![Build Status](https://travis-ci.org/thestarvingcoder/Milestone-4-Fullstack-Website.svg?branch=master)](https://travis-ci.org/thestarvingcoder/Milestone-4-Fullstack-Website)
+
 
 ### Atribution
 
