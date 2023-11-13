@@ -2,6 +2,12 @@
 
 ### This site is an ecommerce website selling art prints. A user can also leave a testimonial and request something custom.
 
+### to do
+
+fix import issues
+upgrade django
+restyle
+hook up to digital ocean
 
 
 ### Atribution
